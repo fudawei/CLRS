@@ -7,8 +7,15 @@ public class CountingSort {
 
     public void sort(int[] array){
 
+        int max = 0;
+        for (int i = 0; i < array.length; i++) {
+           if (max < array[i]) {
+               max = array[i];
+           }
+        }
+
         try {
-            countSort(array, 100);
+            countSort(array, max);
         } catch (Exception e) {
             e.printStackTrace();
         }

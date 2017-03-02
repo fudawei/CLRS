@@ -5,15 +5,15 @@ package com.ellis.clrs.util;
  */
 public class PrintUtil {
     // 打印数组
-    public static void PrintArray(int[] s) {
-        System.out.print("\n下标:");
-        for (int p = 0; p < s.length; p++) {
-            System.out.printf("%2d,", p);
+    public static void PrintArray(int[] array) {
+        System.out.print("{");
+        for (int i = 0; i < array.length; i++) {
+            System.out.print(array[i]);
+            if (i < array.length - 1) {
+                System.out.print(", ");
+            }
         }
-        System.out.print("\n值值:");
-        for (Integer m : s) {
-            System.out.printf("%2d,", m);
-        }
+        System.out.println("}");
         System.out.println("\n-----------------------------");
     }
 
