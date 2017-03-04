@@ -7,7 +7,11 @@ import com.ellis.clrs.util.PrintUtil;
  */
 public class QuickSort {
 
-   public void sort(int[] array, int left, int right) {
+   public void sort(int[] array){
+       sort(array, 0, array.length - 1);
+   }
+
+   private void sort(int[] array, int left, int right) {
       if (left > right) {
           return ;
       }
@@ -28,13 +32,8 @@ public class QuickSort {
               switchValue(array, i, j);
           }
       }
-      System.out.println("start:" + left + " right:" + right);
-      System.out.println("start:" + left + " right:" + (i-1));
-      System.out.println("start:" + (j+1) + " right:" + right);
-      System.out.println();
 
-
-     switchValue(array, i, left);
+      switchValue(array, i, left);
       sort(array, left, i -1);
       sort(array, j + 1, right);
    }
