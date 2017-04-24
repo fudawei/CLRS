@@ -47,7 +47,24 @@ public class Problem15 {
     node14.next = node15;
 
     Node.printLink(head);
-    findKToTail(head, 2);
+    Node node = findKToTail1(head, 1);
+
+    if (node.next == null) {
+      node = null;
+    }
+
+    if (node.next != null) {
+      System.out.println(node.value);
+      Node next = node.next;
+      node.value = node.next.value;
+      if (next.next != null) {
+        node.next = next.next;
+      } else {
+        node.next = null;
+      }
+      next = null;
+    }
+
     Node.printLink(head);
   }
 
@@ -67,6 +84,27 @@ public class Problem15 {
     }
     current = current.next;
     return current;
+  }
+
+  public static Node findKToTail1(Node head,int k){
+    if(head==null||k==0){
+      return null;
+    }
+    Node resultNode=null;
+    Node headListNode=head;
+    for(int i=0;i<k;++i){
+      if(headListNode.next!=null){
+        headListNode=headListNode.next;
+      }else{
+        return null;
+      }
+    }
+    resultNode=head;
+    while(headListNode!=null){
+      resultNode=resultNode.next;
+      headListNode=headListNode.next;
+    }
+    return resultNode;
   }
 }
 
