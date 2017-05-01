@@ -12,7 +12,7 @@ import java.util.Stack;
 public class Problem47 {
 
   public static void main(String[] args) {
-    System.out.println(add(1001,999));
+    System.out.println(addLoop(999,999));
   }
 
   public static int add(int a, int b) {
@@ -25,5 +25,17 @@ public class Problem47 {
     int carray = (a & b) << 1;
 
     return add(sum, carray);
+  }
+
+  public static long addLoop(long a, long b) {
+    long resoul = 0, carry = 0;
+    do {
+      long sum = a ^ b;
+      carry = (a & b) << 1;
+      a = sum;
+      b = carry;
+    } while (b != 0) ;
+
+    return a;
   }
 }
